@@ -15,5 +15,12 @@ fi
 on_chroot apt-key add - < files/raspberrypi.gpg.key
 on_chroot << EOF
 apt-get update
+apt-get install -y openssl ca-certificates
+EOF
+
+install -m 644 files/apt-rpi-colino-net.list "${ROOTFS_DIR}/etc/apt/sources.list.d/"
+on_chroot apt-key add - < files/apt-rpi-colino-net.gpg.key
+on_chroot << EOF
+apt-get update
 apt-get dist-upgrade -y
 EOF
