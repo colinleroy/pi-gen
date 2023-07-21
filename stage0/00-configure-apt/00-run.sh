@@ -15,7 +15,15 @@ fi
 cat files/raspberrypi.gpg.key | gpg --dearmor > "${STAGE_WORK_DIR}/raspberrypi-archive-stable.gpg"
 install -m 644 "${STAGE_WORK_DIR}/raspberrypi-archive-stable.gpg" "${ROOTFS_DIR}/etc/apt/trusted.gpg.d/"
 on_chroot << EOF
-dpkg --add-architecture armhf
+dpkg --add-architecture arm64
+apt-get update
+apt-get install -y gnupg
+apt-get install -y openssl ca-certificates
+EOF
+
+install -m 644 files/apt-rpi-colino-net.list "${ROOTFS_DIR}/etc/apt/sources.list.d/"
+on_chroot apt-key add - < files/apt-rpi-colino-net.gpg.key
+on_chroot << EOF
 apt-get update
 apt-get dist-upgrade -y
 EOF
