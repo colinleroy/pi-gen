@@ -1,0 +1,80 @@
+comment_char %
+escape_char  /
+
+% Locale for English locale in the USA, with emojis transliteration
+
+LC_IDENTIFICATION
+title      "English locale for the USA with emojis transliteration"
+source     ""
+address    "https:////www.colino.net"
+contact    ""
+email      "colin@colino.net"
+tel        ""
+fax        ""
+language   "American English"
+territory  "United States"
+revision   "1.0"
+date       "2024-09-02"
+
+category "i18n:2012";LC_IDENTIFICATION
+category "i18n:2012";LC_CTYPE
+category "i18n:2012";LC_COLLATE
+category "i18n:2012";LC_TIME
+category "i18n:2012";LC_NUMERIC
+category "i18n:2012";LC_MONETARY
+category "i18n:2012";LC_MESSAGES
+category "i18n:2012";LC_PAPER
+category "i18n:2012";LC_NAME
+category "i18n:2012";LC_ADDRESS
+category "i18n:2012";LC_TELEPHONE
+category "i18n:2012";LC_MEASUREMENT
+END LC_IDENTIFICATION
+
+LC_COLLATE
+copy "en_US"
+END LC_COLLATE
+
+LC_CTYPE
+copy "i18n"
+
+translit_start
+include  "translit_emojis";""
+translit_end
+
+END LC_CTYPE
+
+LC_MESSAGES
+copy "en_US"
+END LC_MESSAGES
+
+LC_MONETARY
+copy "en_US"
+END LC_MONETARY
+
+LC_NUMERIC
+copy "en_US"
+END LC_NUMERIC
+
+LC_TIME
+copy "en_US"
+END LC_TIME
+
+LC_PAPER
+copy "en_US"
+END LC_PAPER
+
+LC_TELEPHONE
+copy "en_US"
+END LC_TELEPHONE
+
+LC_MEASUREMENT
+copy "en_US"
+END LC_MEASUREMENT
+
+LC_NAME
+copy "en_US"
+END LC_NAME
+
+LC_ADDRESS
+copy "en_US"
+END LC_ADDRESS
