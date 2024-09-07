@@ -38,6 +38,7 @@ LC_CTYPE
 copy "i18n"
 
 translit_start
+include  "translit_combining";""
 include  "translit_emojis";""
 translit_end
 
