@@ -1,3 +1,5 @@
 libraspberrypi-bin libraspberrypi0 raspi-config surl-server avahi-daemon
 systemd-timesyncd
 proftpd
+cups
+a2tools-print-helper
