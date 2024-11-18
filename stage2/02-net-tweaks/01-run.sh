@@ -11,6 +11,11 @@ for addr in 107d50c000.serial 3f215040.serial 20215040.serial fe215040.serial so
 	echo 1 > "${ROOTFS_DIR}/var/lib/systemd/rfkill/platform-${addr}:bluetooth"
 done
 
+on_chroot <<- EOF
+	update-inetd --remove telnet
+	update-inetd --group STANDARD --add "127.0.0.1:telnet stream tcp nowait root /usr/sbin/tcpd /usr/sbin/telnetd"
+EOF
+
 if [ -v WPA_COUNTRY ]; then
 	on_chroot <<- EOF
 		SUDO_USER="${FIRST_USER_NAME}" raspi-config nonint do_wifi_country "${WPA_COUNTRY}"

@@ -1,10 +1,12 @@
 #!/bin/bash -e
 
-install -m 755 files/resize2fs_once	"${ROOTFS_DIR}/etc/init.d/"
+install -m 755 files/resize2fs_once	 "${ROOTFS_DIR}/etc/init.d/"
 
-install -m 644 files/50raspi		"${ROOTFS_DIR}/etc/apt/apt.conf.d/"
+install -m 644 files/50raspi		 "${ROOTFS_DIR}/etc/apt/apt.conf.d/"
 
-install -m 644 files/console-setup   	"${ROOTFS_DIR}/etc/default/"
+install -m 644 files/console-setup   	 "${ROOTFS_DIR}/etc/default/"
+
+install -m 644 files/etc-profile-term.sh "${ROOTFS_DIR}/etc/profile.d/term.sh"
 
 if [ -n "${PUBKEY_SSH_FIRST_USER}" ]; then
 	install -v -m 0700 -o 1000 -g 1000 -d "${ROOTFS_DIR}"/home/"${FIRST_USER_NAME}"/.ssh
