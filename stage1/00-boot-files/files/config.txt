@@ -48,6 +48,7 @@ dtoverlay=dwc2,dr_mode=host
 [all]
 dtoverlay=gpio-shutdown
 dtoverlay=gpio-fan,gpiopin=12,temp=50000,hyst=5000
+force_turbo=1
 
 [pi4]
 # Leave GPIO 0/1 alone
