@@ -63,3 +63,5 @@ EOF
 if [ -e "${ROOTFS_DIR}/etc/avahi/avahi-daemon.conf" ]; then
   sed -i 's/^#\?publish-workstation=.*/publish-workstation=yes/' "${ROOTFS_DIR}/etc/avahi/avahi-daemon.conf"
 fi
+
+install -m 644 files/etc-profile-term.sh "${ROOTFS_DIR}/etc/profile.d/term.sh"

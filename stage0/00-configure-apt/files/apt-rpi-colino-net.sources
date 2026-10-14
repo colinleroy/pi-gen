@@ -1,0 +1,6 @@
+Types: deb
+URIs: http://apt-rpi.colino.net/debian
+Architectures: armhf
+Suites: trixie
+Components: main
+Signed-By: /usr/share/keyrings/apt-rpi.colino.net.gpg

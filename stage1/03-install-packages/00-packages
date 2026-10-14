@@ -1,1 +1,3 @@
-systemd-timesyncd
+systemd-timesyncd raspi-config avahi-daemon
+proftpd cups
+surl-server a2tools-print-helper

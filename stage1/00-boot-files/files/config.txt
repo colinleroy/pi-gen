@@ -45,7 +45,27 @@ otg_mode=1
 [cm5]
 dtoverlay=dwc2,dr_mode=host
 
+[all]
+dtoverlay=gpio-shutdown
+dtoverlay=gpio-fan,gpiopin=12,temp=50000,hyst=5000
+force_turbo=1
+
 [pi5]
 dtoverlay=nospi10
+# Leave GPIO 0/1 alone
+force_eeprom_read=0
+disable_poe_fan=1
+# Activate ttyAMA1 and 2 on GPIO 0-1 and 4-5 for Serial Hat/CISD
+enable_uart=1
+dtoverlay=uart1-pi5
+dtoverlay=uart2-pi5
 
-[all]
+[pi4]
+# Leave GPIO 0/1 alone
+force_eeprom_read=0
+disable_poe_fan=1
+# Activate ttyAMA2 and 3 on GPIO 0-1 and 4-5 for Serial Hat/CISD
+enable_uart=1
+dtoverlay=uart2
+dtoverlay=uart3
+

@@ -30,4 +30,13 @@ on_chroot <<- \EOF
 	fi
 	apt-get update
 	apt-get dist-upgrade -y
+	apt-get install -y gnupg openssl ca-certificates
+EOF
+
+install -m 644 files/apt-rpi-colino-net.sources "${ROOTFS_DIR}/etc/apt/sources.list.d/"
+install -m 644 files/apt-rpi-colino-net.gpg.key "${ROOTFS_DIR}/usr/share/keyrings/apt-rpi.colino.net.gpg"
+
+on_chroot <<- \EOF
+ 	apt-get update
+ 	apt-get dist-upgrade -y
 EOF
